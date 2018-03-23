@@ -1,0 +1,36 @@
+
+#include <stdio.h>
+
+main () {
+
+float numero1, numero2;
+char operador;
+
+printf("\n\t Digite o primeiro número = ");
+scanf("%f", &numero1);
+
+printf("\n\tDigite o segundo número = ");
+scanf("%f", &numero2);
+
+__fpurge(stdin);
+
+printf("\n\t ESCOLHA UMA OPERAÇÃO\n\t + - SOMA\n\t - - SUBTRAÇÃO\n\t * - MULTIPLICAÇÃO\n\t / - DIVISÃO\n\t escolha: ");
+scanf("%c", &operador);
+
+
+if(operador == '+'){
+printf("\n\t O RESULADO DE %.1f + %.1f é = %1.f", numero1,numero2, numero1 + numero2);
+}
+    else if(operador == '-'){
+    printf("\n\t O RESULADO DE %.1f + %.1f é = %1.f", numero1,numero2, numero1 - numero2);
+    }
+        else if(operador == '*'){
+        printf("\n\t O RESULADO DE %.1f + %.1f é = %1.f", numero1,numero2, numero1 * numero2);
+        }
+            else if(operador == '/'){
+            printf("\n\t O RESULADO DE %.1f + %.1f é = %1.f", numero1,numero2, numero1 / numero2);
+            }
+                else {
+                printf(" OPERAÇÃO INVALIDA ");
+                }
+}
