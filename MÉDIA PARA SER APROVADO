@@ -8,7 +8,9 @@ E DIVIDILAS POR 4 PARA OBTER A MÉDIA, PARA SER APROVADO TEM QUE POSSUIRA A MÉD
 
 float main () {
 
-float nota1, nota2, nota3, nota4, med;
+float nota1, nota2, nota3, nota4, med, faltou;
+
+nota1=nota2=nota3=nota4=med=0;
 
 printf("\n POR FAVOR UTILIZE O '.' PONTO PARA DESCREVER A CASA DESCIMAL");
 
@@ -26,10 +28,12 @@ scanf("%f", &nota4);
 
 med = (nota1 + nota2 + nota3 + nota4) /4;
 
+faltou = 7 - med;
+
 printf("\n SUA MÉDIA É %.1f\n", med);
 
  if(med>=7){
     printf("\n VOCÊ ESTA APROVADO");
     } else{
-        printf("\n VOCÊ ESTA REPROVADO");}
+        printf("\n VOCÊ ESTA REPROVADO, FALTOU > %.1f < PARA SER APROVADO", faltou);}
 }
