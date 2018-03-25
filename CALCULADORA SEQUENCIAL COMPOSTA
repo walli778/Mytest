@@ -1,3 +1,6 @@
+/*
+ESSE PROGRAMA É UMA CALCULADORA COM SEQUENCIAL COMPOSTA, USANDO RAMIFICAÇÕES PARA O CASO JULGADO VERDADEIRO OU FALSO.
+*/
 
 #include <stdio.h>
 
@@ -12,11 +15,10 @@ scanf("%f", &numero1);
 printf("\n\tDigite o segundo número = ");
 scanf("%f", &numero2);
 
-__fpurge(stdin);
+__fpurge(stdin); //LIMPAR O LIXO DO CARACTER, (CHAR) 
 
 printf("\n\t ESCOLHA UMA OPERAÇÃO\n\t + - SOMA\n\t - - SUBTRAÇÃO\n\t * - MULTIPLICAÇÃO\n\t / - DIVISÃO\n\t escolha: ");
 scanf("%c", &operador);
-
 
 if(operador == '+'){
 printf("\n\t O RESULADO DE %.1f + %.1f é = %1.f", numero1,numero2, numero1 + numero2);
