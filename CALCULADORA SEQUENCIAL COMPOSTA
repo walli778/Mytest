@@ -21,16 +21,16 @@ printf("\n\t ESCOLHA UMA OPERAÇÃO\n\t + - SOMA\n\t - - SUBTRAÇÃO\n\t * - MUL
 scanf("%c", &operador);
 
 if(operador == '+'){
-printf("\n\t O RESULADO DE %.1f + %.1f é = %1.f", numero1,numero2, numero1 + numero2);
+printf("\n\t O RESULADO DE %.1f + %.1f é = %.1f", numero1,numero2, numero1 + numero2);
 }
     else if(operador == '-'){
-    printf("\n\t O RESULADO DE %.1f + %.1f é = %1.f", numero1,numero2, numero1 - numero2);
+    printf("\n\t O RESULADO DE %.1f + %.1f é = %.1f", numero1,numero2, numero1 - numero2);
     }
         else if(operador == '*'){
-        printf("\n\t O RESULADO DE %.1f + %.1f é = %1.f", numero1,numero2, numero1 * numero2);
+        printf("\n\t O RESULADO DE %.1f + %.1f é = %.1f", numero1,numero2, numero1 * numero2);
         }
             else if(operador == '/'){
-            printf("\n\t O RESULADO DE %.1f + %.1f é = %1.f", numero1,numero2, numero1 / numero2);
+            printf("\n\t O RESULADO DE %.1f + %.1f é = %.1f", numero1,numero2, numero1 / numero2);
             }
                 else {
                 printf(" OPERAÇÃO INVALIDA ");
