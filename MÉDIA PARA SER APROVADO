@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+ESSE PROGRAMA É PARA VERIFICAR SE O ALUNO ESTA APROVADO OU NAO, IRA PEGAR A ENTRADA DAS 4 NOTAS
+E DIVIDILAS POR 4 PARA OBTER A MÉDIA, PARA SER APROVADO TEM QUE POSSUIRA A MÉDIA ACIMA DE 7.
+*/
+
+float main () {
+
+float nota1, nota2, nota3, nota4, med;
+
+printf("\n POR FAVOR UTILIZE O '.' PONTO PARA DESCREVER A CASA DESCIMAL");
+
+printf("\n\t DIGITE A PRIMEIRA NOTA: ");
+scanf("%f", &nota1);
+
+printf("\n\t\t DIGITE A SEGUNDA NOTA: ");
+scanf("%f", &nota2);
+
+printf("\n\t\t\t DIGITE A TERCEIRA NOTA: ");
+scanf("%f", &nota3);
+
+printf("\n\t\t\t\t DIGITE A QUARTA NOTA: ");
+scanf("%f", &nota4);
+
+med = (nota1 + nota2 + nota3 + nota4) /4;
+
+printf("\n SUA MÉDIA É %.1f\n", med);
+
+ if(med>=7){
+    printf("\n VOCÊ ESTA APROVADO");
+    } else{
+        printf("\n VOCÊ ESTA REPROVADO");}
+}
