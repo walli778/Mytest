@@ -1,0 +1,274 @@
+1 Composição Inteira (+) 
+
+Escreva um algoritmo em Linguagem C que leia três números inteiros separados (n1, n2, n3) e calcule
+o número inteiro correspondente à concatenação dos três números lidos, de modo que n1 seja a centena, n2
+a dezena e n3 a unidade. O programa deve apresentar o número calculado e também o seu quadrado. Caso
+n1, n2 ou n3 tenham mais que 1 dígito, o programa deve apresentar a mensagem: "DIGITO INVALIDO"e
+encerrar a execução. O valor de saída não deve ter zeros à esquerda.
+
+
+#include <stdio.h>
+ 
+main () {
+ 
+int n1, n2, n3, ni; // variaveis
+ 
+scanf("%i", &n1); //escania o primeiro numero
+scanf("%i", &n2); //escania o segundo numero
+scanf("%i", &n3); //escania o 3 numero
+ 
+if ((n1<=9)&&(n2<=9)&&(n3<=9)) { // LOGICA, TODOS OS NUMEROS TEM QUE SER MAIOR OU IGUAL A 9, SE NAO ATINGIR ESSA CONDIÇÃO IRA DAR MSG DE DIGITO INVALIDO - &&(TRUE E TRUE)
+ 
+    ni = n1*100 + n2*10 + n3*1; // PARA A COMPOSIÇÃO DO ALGORISMO DE 3 DIGITOS
+    printf("%i, %i", ni, ni*ni); // PRINTADO O NÚMERO DE 3 DIGITOS E O DIGITO AO QUADRADO
+ 
+} else {
+ printf("DIGITO INVALIDO");// CASO A CONDIÇÃO IF NAO SEJA ATENDIDA
+    }
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+2 Consumo de energia (+)
+
+Sabendo-se que 100 kW de energia custam 70% do salário mínimo, escreva um algoritmo em Linguagem
+C que leia o valor do salário mínimo e a quantidade de kW gasta por uma residência. Calcule e
+imprima:
+• o valor em reais de cada kW;
+• o valor em reais a ser pago pelo consumo da residência;
+• o novo valor a ser pago pela residência com um desconto de 10%
+
+
+#include<stdio.h>
+#include<math.h>
+ 
+ /*
+    DESENVOLVIDO POR JÓSÉ NETO E COMENTADO POR WALLISON K.
+ */
+main(){
+ 
+    float kWGasto, kW100,kWPreco, salarioM, custoConsumo, custoComDesconto; // declarando as variaveis
+ 
+    scanf("%f",&salarioM); //escaniando o valor de salario
+    scanf("%f",&kWGasto); //escaniando o valor de KW gasto na casa
+ 
+    kW100 = (0.7 * salarioM); // calculando a porcentagem de 100 KW
+    kWPreco = (kW100 / 100); // Descobrindo o preço por 1 KW
+    custoConsumo = kWPreco * kWGasto; // Fazendo a multiplicação do KW gasto na casa e o Preço por cada Kw
+ 
+    custoComDesconto = custoConsumo - (custoConsumo * 0.10); // fazendo o desconto de 10%
+ 
+    printf("Custo por kW: R$ %.2f\n", truncf(kWPreco*100)/100); // printando na tela o preço de Kw
+    printf("Custo do consumo: R$ %.2f\n",truncf(custoConsumo*100)/100); // printando na tela o cuto de Consumo
+    printf("Custo com desconto: R$ %.2f\n",truncf(custoComDesconto*100)/100); // Printando na tela o valor do desconto
+ 
+ 
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+3 Conversões para o Sistema Métrico (+)
+
+Muitos países estão passando a utilizar o sistema métrico. Faça um programa para executar as seguintes
+conversões:
+• Ler uma temperatura em Fahrenheit e imprimir o equivalente em Celsius (C =
+5(F −32)/9).
+• Ler uma quantidade de chuva dada em polegadas e imprimir o equivalente em milímetros (1 polegada = 25.4 mm).
+
+include <stdio.h>
+ 
+main () {
+ 
+float fahrenheit, celcius, polegadas, mm, MM_PP = 25.4; //DECLARANDO AS VARIAVEIS, | NO CASO JA DECLAREI QUE 1 POLEGADA VALE 25.4 MM|
+ 
+scanf("%f", &fahrenheit); //ESCANIANDO O QUANTOS GRAUS EM FAHNRENHEIT
+scanf("%f", &polegadas); // ESCANIANDO QUANTAS POLEGADAS
+ 
+celcius = (5*(fahrenheit - 32 ))/9; // CONVERSÃO DE FAHRNHEIT EM CELCIUS
+mm = polegadas*MM_PP; // CONVERSAO DE POLEGADAS EM MM
+ 
+printf (" O VALOR EM CELSIUS = %.2f\n", truncf(celcius*100.0)/100.0); // PRINTANDO NA TELA O VALOR EM CELCIUS
+printf (" A QUANTIDADE DE CHUVA E = %.2f\n", truncf(mm*100.0)/100.0); // PRINTANDO NA TELA O VALOR EM MM
+ 
+ 
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+4 Custo da Lata de Cerveja (+)
+
+Um fabricante de latas deseja desenvolver um programa para calcular o custo de uma lata cilíndrica de
+alumínio, sabendo-se que o custo do alumínio por m2 é R$ 100,00
+
+
+#include <stdio.h>
+ 
+main () {
+ 
+float raio_lata, altura_lata, m2=100, area_cilindo , valor_custo, ac, al, pi=3.14159; //declarando as variaveis
+ 
+scanf("%f", &raio_lata); // pegando o valor do raio
+scanf("%f", &altura_lata); // pegando o valor da altura
+ 
+ac= 2*(pi*(raio_lata*raio_lata)); // calculando a area do circulo
+al= (2*pi*raio_lata*altura_lata); // calculando a area lateral
+area_cilindo = ac + al; // calculando a area total
+ 
+valor_custo = area_cilindo*m2; //calculando o valor do custo
+ 
+printf("O VALOR DO CUSTO E = %.2f\n", truncf(valor_custo*100)/100); // printando na tela o valor do custo
+ 
+}
+
+--------------------------------------------------------------------------------------------------------------------------
+
+5 Cálculo do Delta na Equação de Báskara (+)
+Fazer um programa para ler os valores dos coeficientes A, B e C de uma equação quadrática e calcular
+e imprimir o valor do discriminante (∆). O valor de ∆ é dado pela fórmula: ∆ = B2 − 4AC.
+
+
+#include <stdio.h>
+ 
+main () {
+ 
+float A,B, C, delta; //declarando as variaveis
+ 
+scanf("%f", &A); //valor de a
+scanf("%f", &B); //valor de b
+scanf("%f", &C); //valor de c
+ 
+delta= (B*B) - 4*A*C; //calculando o delta pela formula
+ 
+printf("O VALOR DE DELTA E= %.2f\n", truncf(delta*100)/100); //printando na tela o valor de delta
+ 
+}
+
+---------------------------------------------------------------------------------------------------------------------------
+
+6 Volume da Pirâmide de Base Hexagonal (+)
+(+)
+O volume (V ) de uma pirâmide cuja base é um hexágono regular é computado pela Equação 1:
+
+onde h é a altura da pirâmide e Ab é a área do hexágono que forma a base da pirâmide. A área do
+hexágono é computada pela Equação 2:
+
+
+#include <stdio.h>
+#include <math.h>
+ 
+main () {
+ 
+float volume_piramide, ab, altura, aresta, X=sqrt(3),Y; //DECLARANDO AS VARIAVEIS, |X É A RAIZ USADA NO AB:
+ 
+scanf("%f  %f", &altura, &aresta);//ESCANIANDO O VALOR DA ALTURA E DA ARETA
+ 
+ab =  3*(aresta*aresta)*X/2; // FAZENDO O PRIMEIRO CALCULO, AREA DA BASE
+ 
+volume_piramide = ab*altura*1/3; // CALCULANDO O VOLUME DA PIRAMIDE, COM O VALOR DA AREA DA BASE JA CALCULADO, PS ENCONTREI PROBLEMAS PARA FAZER O *(1/3)
+ 
+printf("O VOLUME DA PIRAMIDE E = %.2f METROS CUBICOS\n", truncf(volume_piramide*100)/100); // PRINTANDO E ARRENDONDANDO COM A FUNÇÃO TRUNCF O VALOR DA AREA DA BASE
+ 
+
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+10 Quatro Algarismos (++)
+
+Dado um número inteiro de três algarismos, construir outro número inteiro de quatro algarismos de
+acordo com a seguinte regra: os três primeiros algarismos, contados da esquerda para a direita são iguais ao
+número dado. O quarto algarismo é um digito de controle calculado da seguinte forma: primeiro algarismo
++ segundo algarismo×3 + terceiro algarismo×5. O dígito de controle é igual ao resto da divisão dessa soma
+por 7.
+
+#include <stdio.h>
+ 
+/*
+  DECLARANDO VARIAVEIS INTEIRAS, A DIVISAO SO TERA NUMEROS INTEIROS.
+*/
+ 
+main () {
+ 
+int n,divisao,resto, d3, d2, d1, n2; // DECLARANDO AS VARIAVEIS
+ 
+scanf("%i",&n); //SCANIANDO O VALOR DOS 3 DIGITOS
+ 
+n2 = n; // ESSSA PRIMEIRA PARTE ESTOU FAZENDO PARA CALCULAR O VALOR DE D1,D2 E D3, DECLARANDO QUE N2=N
+ 
+d3 = n2%10; //DESCOBRINDO O TERCEIRO ALGORISMO, SIMPLESMENTE COM O RESTO | SENDO INTEIRO A DIVISÃO 123/10 O RESTO É 3
+n2 = n2/10; // DIVIDI POR 10 PARA ACHAR O RESULTADO DA DIVISÃO QUE É 12, OU SEJA O NOVO VALOR DE N2 = 12 --> 123/10
+ 
+// O NOVO VALOR DE N2 JA É 12 | DEIXANDO BEM CLARO
+ 
+d2 = n2%10; // DESCOBRINDO O SEGUNDO ALGORISMO, DE NOVO COM O RESTO | SENDO INTEIRO A DIVISAO DE 12/10 | O 12 SAIU DA LINHA 16, DIVIDINDO O RESTO É 2
+n2 = n2/10; // DIVIDINDO O 12/10 ENCONTRAREMOS O RESULTADO 1, OU SEJA O NOVO VALOR DE N2 = 1
+ 
+// O NOVO VALOR DE N2 JA É 1
+ 
+d1 = n2; // COMO SO SOBROU UM DIGITO CLARO Q SERA O PRIMEIRO
+ 
+ 
+divisao = d1 + d2*3 + d3*5; // CALCULANDO A NUMERO CONTROLE
+resto = divisao%7; // DIVIDNDO O NUMERO CONTROLE POR 7 E PEGANDO SEU RESTO
+ 
+printf("O NOVO NUMERO E=%i%i\n", n,resto); // PRINTANDO NA TELA O NOVO NUMERO OU SEJA O NUMERO QUE FOI DIGITITADO  + O CONTROLE
+ 
+ 
+ 
+}
+
+---------------------------------------------------------------------------------------------------------------------------
+
+13 Sistemas de Equação Linear (++++)
+
+Dado um sistema de equações lineares do tipo:
+ax + by = c
+dx + ey = f
+Escreva um programa para ler os valores dos coeficientes: a, b, c, d, e e f e calcular os valores de x e y.
+
+
+#include <stdio.h>
+ 
+float a,b,c,d,e,f, x, y; // DECLARANDO AS VARIAVEIS
+ 
+main () {
+ 
+scanf("%f", &a); 
+scanf("%f", &b);
+scanf("%f", &c);
+scanf("%f", &d);
+scanf("%f", &e);
+scanf("%f", &f);
+ 
+//ax + by = c
+//dx + ey = f
+ 
+/*        
+ 
+ comentario (5) == sendo uma divisão de fração, para retirar o dedominador precisa | tirar o mmc antes e dps do sinal de = |, como no caso
+ nao temos outro dedominador nas outras operações, e so multiplicar por d o (b e c).
+ 
+ 
+  ax + by = c                                                             dx + ey = f    <-- isolando o x (1)
+  a(f - (e*y))/d + by = c (3)       <-- coloquei a equação -->            x = f - (e*y)/d  <-- substitur na primeira equação (2)
+  (af - (a*e*y))/d + by = c (4)    <-- distributiva                        
+  af - (a*e*y) + bdy = cd (5)      <-- comentario (5)
+  y = ((c*d) - (a*f)) / ((-a*e) + (b*d)) (6) <-- isolando o y
+ 
+  (7) = como ja isolamos o y. o programa ja ira calcular
+  (8) e ira substituir no x isolado
+*/
+ 
+ 
+y = ((c*d) - (a*f))/((-a*e) + (b*d)); //ACHANDO O Y
+x = (f -(e*y))/d; // ACHANDO O X
+ 
+printf("O VALOR DE X E= %.2f \n", truncf(x*100)/100); //PRINTNADO NA TELA O VALOR X 
+printf("O VALOR DE Y E= %.2f \n", truncf(y*100)/100); //PRINTANDO NA TELA O VALOR DE Y
+ 
+}
+
