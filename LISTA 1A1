@@ -173,6 +173,61 @@ printf("O VOLUME DA PIRAMIDE E = %.2f METROS CUBICOS\n", truncf(volume_piramide*
 
 }
 
+-----------------------------------------------------------------------------------------------------------------------------
+
+7 Tempo em segundos (+)
+
+Fazer um programa que leia um valor de tempo expresso em horas, minutos e segundos e que converta
+esse tempo para um valor em segundos.
+
+
+#include <stdio.h>
+
+main () {
+
+int horas, minutos, segundos, choras, cminutos, minutosTOTAL; //DECLARANDO AS VARIAVEIS
+
+scanf("%d", &horas); // scaniando a variavel horas
+scanf("%d", &minutos); // scaniando a variavel minutos
+scanf("%d", &segundos); //scaniando a variavel segundos
+
+choras = horas * 60 * 60; // convertendo horas em segundos
+cminutos = minutos * 60; // convertendo minutos em segundos
+
+minutosTOTAL = choras + cminutos + segundos; // somando o valor convertido em segundos, ou seja horas + minutos --> ja convertido + os segundos
+
+printf("O TEMPO EM SEGUNDOS E= %d\n", minutosTOTAL); // printando na tela o resultado
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+8
+Cálculo da Área de um Triângulo (++)
+
+Desenvolver um algoritmo para ler os comprimentos dos três lados de um triângulo (L 1 , L 2 e L 3 ) e
+calcular a área do triângulo.
+
+
+#include <stdio.h>
+#include <math.h>
+
+main () {
+
+float l1, l2, l3, area, T; //declarando as variaveis
+
+scanf("%f", &l1); // scaniando o primeiro lado
+scanf("%f", &l2); // scaniando o segundo lado
+scanf("%f", &l3); // scaniando o terceiro lado
+
+T = (l1 + l2 + l3)/2; // calculando o valor de T
+
+area = sqrt(T*(T-l1)*(T-l2)*(T-l3)); // calculando o valor da area
+
+
+printf("A AREA DO TRIANGULO E = %.2f\n", truncf(area*100)/100); // printando na tela a area do triangulo
+
+}
 
 -----------------------------------------------------------------------------------------------------------------------------
 
@@ -223,10 +278,107 @@ printf("O NOVO NUMERO E=%i%i\n", n,resto); // PRINTANDO NA TELA O NOVO NUMERO OU
 
 ---------------------------------------------------------------------------------------------------------------------------
 
+11
+Número Invertido (+++)
+
+Escreva um programa para ler um número de três dígitos e imprimir o número invertido
+
+
+#include <stdio.h>
+
+/*
+  DECLARANDO VARIAVEIS INTEIRAS, A DIVISAO SO TERA NUMEROS INTEIROS.
+*/
+
+main () {
+
+int n, d3, d2, d1; // DECLARANDO AS VARIAVEIS
+
+scanf("%i",&n); //SCANIANDO O VALOR DOS 3 DIGITOS
+
+d3 = n%10; //DESCOBRINDO O TERCEIRO ALGORISMO, SIMPLESMENTE COM O RESTO | SENDO INTEIRO A DIVISÃO 123/10 O RESTO É 3
+n = n/10; // DIVIDI POR 10 PARA ACHAR O RESULTADO DA DIVISÃO QUE É 12, OU SEJA O NOVO VALOR DE N2 = 12 --> 123/10
+
+// O NOVO VALOR DE N2 JA É 12 | DEIXANDO BEM CLARO
+
+d2 = n%10; // DESCOBRINDO O SEGUNDO ALGORISMO, DE NOVO COM O RESTO | SENDO INTEIRO A DIVISAO DE 12/10 | O 12 SAIU DA LINHA 16, DIVIDINDO O RESTO É 2
+n = n/10; // DIVIDINDO O 12/10 ENCONTRAREMOS O RESULTADO 1, OU SEJA O NOVO VALOR DE N2 = 1
+
+// O NOVO VALOR DE N2 JA É 1
+
+d1 = n; // COMO SO SOBROU UM DIGITO CLARO Q SERA O PRIMEIRO
+
+printf("%i%i%i\n", d3,d2,d1); // PRINTANDO NA TELA O NOVO NUMERO OU SEJA O NUMERO QUE FOI DIGITITADO  + O CONTROLE
+
+}
+
+---------------------------------------------------------------------------------------------------------------------------
+
+12
+Valor em Notas e Moedas (+++)
+
+Escreva um algoritmo par ler um valor em reais e calcular qual o menor número possível de notas de $R
+100, $R 50, $R 10 e moedas de $R 1 em que o valor lido pode ser decomposto. O programa deve escrever
+a quantidade de cada nota e moeda a ser utilizada.
+
+#include <stdio.h>
+
+main () {
+
+
+/*
+ DECLARANDO VARIAVEL INTEIRA, A DIVISAO TBM SERA INTEIRA, POR ISSO NAS DIVISOES SAI O RESULTADO
+*/
+
+
+int nota100, nota50,nota10, moeda1, num; //VARIAVEIS
+
+scanf("%d", &num); // ESCANIANDO O VALOR DIGITADO
+
+nota100 = num/100; //DIVIDINDO NUM POR 100 E ACHANDO UM VALOR INTEIRO
+
+num = num%100; // ACHANDO O RESTO DE NUM -- ESSE RESTO IRA SER O NUMERO PARA COMPOR AS NOTAS DE 50
+// NOVO VALOR DE NUM = 95
+
+nota50 = num/50; //DIVIDINDO NUM POR 50 E ACHANDO UM VALOR INTEIRO
+
+num = num-(50*nota50); // -- NESSE CASO EU ENCONTREI UM PROBLEMA AO DIVIDIR O NUM POR 50, DAVA 1.9 E NAO IA BATER O RESULTADO, ENTAO ACHEI
+                       //  UMA SOLUÇÃO PARA O PROBLEMA, QUE FOI TIRAR A DIFERENÇA DE NUM E MULTIPLICAR A QUANTIDADE DE NOTAS DE 50 ENCONTRADAS NO NOTA50
+
+// NOVO VALOR DE NUM = 45
+
+nota10 = num/10; // DIVINDO POR 10 E ENCONTRANDO QUANTAS NOTAS PRECISAVA
+
+num = num%10; // DIVINDO E ACHANDO O RESTO
+
+// NOVO VALOR DE NUM = 5
+
+moeda1 = num/1; // NESSE CASO NEM PRECISO MAIS FALA NADA, VC ENTENDEU
+
+printf("NOTAS DE 100 = %i\n", nota100);
+printf("NOTAS DE 50 = %i\n", nota50);
+printf("NOTAS DE 10 = %i\n", nota10);
+printf("MOEDAS DE 1 = %i\n", moeda1);
+}
+
+
+Exemplo
+Entrada
+46395
+
+Saída
+NOTAS DE 100 = 463
+NOTAS DE 50 = 1
+NOTAS DE 10 = 4
+MOEDAS DE 1 = 5
+
+--------------------------------------------------------------------------------------------------------------------------
+
 13 Sistemas de Equação Linear (++++)
 
 Dado um sistema de equações lineares do tipo:
 ax + by = c
+
 dx + ey = f
 Escreva um programa para ler os valores dos coeficientes: a, b, c, d, e e f e calcular os valores de x e y.
 
@@ -271,4 +423,19 @@ printf("O VALOR DE X E= %.2f \n", truncf(x*100)/100); //PRINTNADO NA TELA O VALO
 printf("O VALOR DE Y E= %.2f \n", truncf(y*100)/100); //PRINTANDO NA TELA O VALOR DE Y
  
 }
+
+
+Exemplo
+
+Entrada
+7
+8
+12
+3
+5
+9
+
+Saída
+O VALOR DE X E = -1.09
+O VALOR DE Y E = 2.45
 
